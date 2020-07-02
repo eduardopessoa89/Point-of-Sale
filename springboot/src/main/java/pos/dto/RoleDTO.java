@@ -7,11 +7,8 @@ import java.util.Set;
 public class RoleDTO {
 
     private Integer id;
-
     private String name;
-
     private String description;
-
     private Set<Permission> permissions;
 
     public RoleDTO() {

@@ -10,6 +10,7 @@ public class LoginDTO {
     private Integer idRole;
     private String name;
     private String token;
+
     private List<String> permissions;
 
     public LoginDTO() {

@@ -18,7 +18,9 @@ import pos.repository.UserRepository;
 @Service
 public class UserService {
 
+
     private UserRepository userRepository;
+
     private RoleService roleService;
 
     @Autowired
@@ -30,8 +32,8 @@ public class UserService {
     public UserRepository getRepository() {
         return this.userRepository;
     }
-
     public RoleService getRoleService() { return this.roleService;}
+
 
     public List<UserDTO> get() {
         List<User> users = (List<User>) userRepository.findAll();
@@ -61,11 +63,11 @@ public class UserService {
     }
 
     private boolean validateCreate(User user) {
-
         return true;
     }
 
     public User update(User user) throws Exception {
+
         if (this.validateUpdate(user)) {
             return userRepository.save(user);
         } else {
@@ -74,14 +76,14 @@ public class UserService {
     }
 
     private boolean validateUpdate(User user) {
+
         User userTemporary = this.findUserbyEmail(user.getEmail());
 
         if (!userTemporary.getPassword().equals(user.getPassword())) {
-            String passwordCrypted = new BCryptPasswordEncoder().encode(user.getPassword());
+            String passwordCrypted = CryptoUtil.hash(user.getPassword());
             user.setPassword(passwordCrypted);
-        }
-
-        return false;
+              }
+          return true;
     }
 
     public void delete(Long id) {
