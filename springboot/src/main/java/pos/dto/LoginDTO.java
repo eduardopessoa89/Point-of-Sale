@@ -6,15 +6,10 @@ import java.util.List;
 public class LoginDTO {
 
     private Integer id;
-
     private String email;
-
     private Integer idRole;
-
     private String name;
-
     private String token;
-
     private List<String> permissions;
 
     public LoginDTO() {
