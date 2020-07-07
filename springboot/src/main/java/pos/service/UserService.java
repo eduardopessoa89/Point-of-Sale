@@ -2,7 +2,6 @@ package pos.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -80,10 +79,9 @@ public class UserService {
                return true;
     }
 
-    public void delete(Long id) {
-        userRepository.deleteById(id);
+    public User findUserbyEmail(String email) {
+        return getRepository().findByEmail(email);
     }
-
 
     public User findByEmailAndPassword(String username, String password) {
         return getRepository().findByEmailAndPassword(username.toLowerCase(), CryptoUtil.hash(password));
@@ -115,4 +113,8 @@ public class UserService {
         userDTO.setRole(roleDTO);
         return userDTO;
     }
+
+	public void delete(Integer id) {
+        getRepository().delete(getRepository().findUserById(id));;
+	}
 }

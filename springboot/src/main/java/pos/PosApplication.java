@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
-
 @SpringBootApplication
 @EntityScan(basePackages = {"pos.model"})
 @EnableJpaRepositories(basePackages = {"pos.repository"})
