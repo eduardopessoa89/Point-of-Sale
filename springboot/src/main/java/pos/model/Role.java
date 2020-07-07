@@ -28,6 +28,7 @@ public class Role implements Serializable {
 	@Column(name = "description")
 	private String description;
 
+	@Column(name = "deleted")
 	private boolean deleted = false;
 
 	@ManyToMany(fetch = FetchType.LAZY)
