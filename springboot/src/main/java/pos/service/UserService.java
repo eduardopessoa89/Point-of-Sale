@@ -84,9 +84,6 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public User findUserbyEmail(String email) {
-        return getRepository().findByEmail(email);
-    }
 
     public User findByEmailAndPassword(String username, String password) {
         return getRepository().findByEmailAndPassword(username.toLowerCase(), CryptoUtil.hash(password));
