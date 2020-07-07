@@ -77,13 +77,7 @@ public class UserService {
 
     private boolean validateUpdate(User user) {
 
-        User userTemporary = this.findUserbyEmail(user.getEmail());
-
-        if (!userTemporary.getPassword().equals(user.getPassword())) {
-            String passwordCrypted = CryptoUtil.hash(user.getPassword());
-            user.setPassword(passwordCrypted);
-              }
-          return true;
+               return true;
     }
 
     public void delete(Long id) {

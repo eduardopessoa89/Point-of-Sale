@@ -44,7 +44,7 @@ public class UserController {
         return new ResponseEntity<>(userSalved, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/", produces = "Application/json")
+    @PatchMapping(value = "/", produces = "Application/json")
     public ResponseEntity<User> update(@RequestBody UserDTO userDTO) throws Exception {
 
         User userUpdate = getService().update(getService().toUserModel(userDTO));
